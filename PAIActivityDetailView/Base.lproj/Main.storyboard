@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="markMan.png" translatesAutoresizingMaskIntoConstraints="NO" id="KVC-vE-aDb">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <animations/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KfI-Qg-GDY">
+                                <rect key="frame" x="241" y="285" width="119" height="30"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="119" id="FAd-61-Z97"/>
+                                    <constraint firstAttribute="height" constant="30" id="fCb-qh-Rmw"/>
+                                </constraints>
+                                <state key="normal" title="show detail View "/>
+                                <connections>
+                                    <action selector="presentDetailView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Nsb-uV-vF5"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="KfI-Qg-GDY" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="265" id="1zf-w1-x3U"/>
+                            <constraint firstItem="KVC-vE-aDb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="7U1-gj-h8e"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="KVC-vE-aDb" secondAttribute="bottom" id="7jc-ct-FrZ"/>
+                            <constraint firstAttribute="trailing" secondItem="KVC-vE-aDb" secondAttribute="trailing" id="C6p-9h-Axa"/>
+                            <constraint firstItem="KfI-Qg-GDY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Xze-KE-mvp"/>
+                            <constraint firstItem="KVC-vE-aDb" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="hkd-Bg-wcs"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="213" y="512"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="markMan.png" width="750" height="1334"/>
+    </resources>
+</document>
