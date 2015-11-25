@@ -10,6 +10,9 @@
 #import "PAIActivityItemDetailView.h"
 #import "PAIActivityItemGroupView.h"
 
+
+static CGFloat ItmeDetailHeight = 236.f;
+
 @interface PAIActiviryItemView()<PAIActivityItemDetailViewDelegate>
 @property (nonatomic,strong)PAIActivityItemDetailView *itemDetailView;
 @property (nonatomic,strong)PAIActivityItemGroupView *itemGroupView;
@@ -30,7 +33,17 @@
 - (PAIActivityItemGroupView *)itemGroupView {
     if (!_itemGroupView) {
         _itemGroupView = [[[NSBundle mainBundle]loadNibNamed:@"PAIActivityItemGroupView" owner:nil options:nil]lastObject];
-        _itemGroupView.frame = CGRectMake(self.frame.size.width / 2 - 160, 64, 320, 340);
+        
+        CGFloat itemGroupSize = self.frame.size.width - 100;
+        CGFloat itemGroupHeight = itemGroupSize + 37;
+        CGFloat itemGroupCurrentHeight = self.frame.size.height - ItmeDetailHeight - 64;
+        if (itemGroupCurrentHeight > itemGroupHeight) {
+            _itemGroupView.frame = CGRectMake(self.frame.size.width / 2 - itemGroupSize / 2, 64 + (itemGroupCurrentHeight - itemGroupHeight) / 2, itemGroupSize, itemGroupHeight);
+        }else {
+            _itemGroupView.frame = CGRectMake(self.frame.size.width / 2 - 160, 64, 320, 320 + 37);
+        }
+        
+        [self addSubview:_itemGroupView];
     }
     return _itemGroupView;
 }
@@ -39,7 +52,7 @@
 - (PAIActivityItemDetailView *)itemDetailView {
     if (!_itemDetailView) {
         _itemDetailView = [[[NSBundle mainBundle]loadNibNamed:@"PAIActivityItemDetailView" owner:nil options:nil]lastObject];
-        _itemDetailView.frame = CGRectMake(0, self.frame.size.height - 226, self.frame.size.width, 226);
+        _itemDetailView.frame = CGRectMake(0, self.frame.size.height - ItmeDetailHeight, self.frame.size.width, ItmeDetailHeight);
         _itemDetailView.delegate = self;
         __weak __typeof(self)weakSelf = self;
         _itemDetailView.clickToBuyBlock = ^ {
@@ -47,6 +60,12 @@
                 [weakSelf.delegate clickToBuyWithItem:weakSelf.itemDetailView.frontShowItem];
             }
         };
+        _itemDetailView.linkToOfficialBlock = ^ {
+            if ([weakSelf.delegate respondsToSelector:@selector(linkToOfficialWithItem:)]) {
+                [weakSelf.delegate linkToOfficialWithItem:weakSelf.itemDetailView.frontShowItem];
+            }
+        };
+        [self addSubview:_itemDetailView];
     }
     return _itemDetailView;
 }
@@ -77,14 +96,18 @@
 }
 
 - (void)updateCurrentUI {
-    
+    [self.itemGroupView setSourceData:@[@"6.jpg",@"7.jpg",@"8.jpg",@"9.jpg"]];
+    [self.itemDetailView setItemsListSource:self.itemsArray];
 }
 
 
 #pragma mark - itemDetail delegate
 - (void)scrollViewDidSelectedNewItem:(id)newItem {
     
-    // 刷新itemGroup View 
+    // 刷新itemGroup View
+    if (newItem) {
+        [self.itemGroupView setSourceData:@[@"6.jpg",@"7.jpg",@"8.jpg",@"9.jpg"]];
+    }
 }
 
 #pragma barck - dimiss

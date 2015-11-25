@@ -21,4 +21,6 @@
 @property (nonatomic,strong,readonly)id frontShowItem;
 @property (nonatomic,weak)id<PAIActivityItemDetailViewDelegate>delegate;
 @property (nonatomic,copy)void (^clickToBuyBlock)();
+@property (nonatomic,copy)void (^linkToOfficialBlock)();
+- (void)setItemsListSource:(NSArray *)array;
 @end

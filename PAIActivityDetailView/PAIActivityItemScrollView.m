@@ -18,11 +18,14 @@ typedef NS_ENUM(NSInteger,ScrollDirectionType) {
 
 @interface PAIActivityItemScrollView()
 @property (nonatomic,strong)NSMutableArray *sourceArray;
+@property (nonatomic,strong)NSMutableArray *itemViewArray;
 @property (nonatomic,strong)PAIActivityScrollView *currentScrollView;
 
 @property (nonatomic,assign)BOOL startScroll;
 @property (nonatomic,assign)CGPoint startPoint;
 @property (nonatomic,assign)CGPoint startCenter;
+
+@property (nonatomic,assign)CGFloat indexWidth;
 @end
 
 @implementation PAIActivityItemScrollView
@@ -31,6 +34,7 @@ typedef NS_ENUM(NSInteger,ScrollDirectionType) {
     self = [super initWithFrame:frame];
     if (self) {
         self.userInteractionEnabled = YES;
+        self.backgroundColor = [UIColor clearColor];
         _startScroll = NO;
     }
     return self;
@@ -41,6 +45,13 @@ typedef NS_ENUM(NSInteger,ScrollDirectionType) {
         _sourceArray = [NSMutableArray array];
     }
     return _sourceArray;
+}
+
+- (NSMutableArray *)itemViewArray {
+    if (!_itemViewArray) {
+        _itemViewArray = [NSMutableArray array];
+    }
+    return _itemViewArray;
 }
 
 - (void)setSourceItems:(NSArray *)itemsArray {
@@ -55,9 +66,9 @@ typedef NS_ENUM(NSInteger,ScrollDirectionType) {
 
 - (void)initSubItemViews {
     
-    CGFloat indexWidth = 0;
+    self.indexWidth = 0;
     if (self.sourceArray.count > 1) {
-        indexWidth = (self.frame.size.width - constSize) / self.sourceArray.count;
+        self.indexWidth = (self.frame.size.width - constSize) / self.sourceArray.count;
     }
     
     if (self.subviews.count > 0) {
@@ -75,14 +86,19 @@ typedef NS_ENUM(NSInteger,ScrollDirectionType) {
         scrollView.tag = i;
         scrollView.index = i;
         if (self.sourceArray.count > 1) {
-            scrollView.frame = CGRectMake(indexWidth * i, 0, constSize, constSize);
+            scrollView.frame = CGRectMake(self.indexWidth * i, 0, constSize, constSize);
         }else {
             scrollView.frame = CGRectMake(0, 0, constSize, constSize);
         }
         if (i == 0) {
             self.currentScrollView = scrollView;
         }
+        [scrollView setImage:[UIImage imageNamed:self.sourceArray[i]]];
+        scrollView.layer.borderWidth = 1.f;
+        scrollView.layer.borderColor = [UIColor grayColor].CGColor;
+        [self.itemViewArray addObject:scrollView];
         [self addSubview:scrollView];
+        [self sendSubviewToBack:scrollView];
     }
 }
 
@@ -146,8 +162,12 @@ typedef NS_ENUM(NSInteger,ScrollDirectionType) {
 // 滑动中途取消
 - (void)reChangeItemListViewsFrame {
     [UIView animateWithDuration:0.2f animations:^{
-        self.currentScrollView.transform = CGAffineTransformIdentity;
-        self.currentScrollView.frame = CGRectMake(0, 0, constSize, constSize);
+        for (int i = 0; i < self.itemViewArray.count; i++) {
+            PAIActivityScrollView *imageView = (PAIActivityScrollView *)self.itemViewArray[i];
+            imageView.transform = CGAffineTransformIdentity;
+            [imageView setFrame:CGRectMake(self.indexWidth * i, 0, constSize, constSize)];
+            imageView.alpha = 1.0;
+        }
     } completion:^(BOOL finished) {
         
     }];
@@ -155,18 +175,26 @@ typedef NS_ENUM(NSInteger,ScrollDirectionType) {
 
 // 滑动之后重设 self subviews 的frame
 - (void)scrollToDirectionType:(ScrollDirectionType)type {
-    NSArray *subViews = self.subviews;
-    NSInteger startCount = subViews.count - 1;
-    
-    for (NSInteger i = startCount; i >= 0; i--) {
-        id object = subViews[i];
-        if ([object isKindOfClass:[PAIActivityScrollView class]]) {
-            PAIActivityScrollView *imageView = (PAIActivityScrollView *)object;
-            if (imageView.index == self.currentScrollView.index) {
-                NSLog(@"最后一个subview 位当前屏幕的第一个View");
-            }
+
+    CGFloat distense = self.currentScrollView.center.x - 80;
+    [UIView animateWithDuration:(distense / 1000) animations:^{
+        if (type == ScrollDirectionType_Left) {
+            [self.currentScrollView setFrame:CGRectMake(-80, self.currentScrollView.frame.origin.y + 40, CGRectGetWidth(self.currentScrollView.bounds), CGRectGetHeight(self.currentScrollView.bounds))];
+        }else {
+            [self.currentScrollView setFrame:CGRectMake(80, self.currentScrollView.frame.origin.y + 40, CGRectGetWidth(self.currentScrollView.bounds), CGRectGetHeight(self.currentScrollView.bounds))];
         }
-    }
+        self.currentScrollView.alpha = 0;
+    } completion:^(BOOL finished) {
+        self.currentScrollView.transform = CGAffineTransformIdentity;
+        [self sendSubviewToBack:self.currentScrollView];
+        [self.itemViewArray removeObjectAtIndex:0];
+        [self.itemViewArray addObject:self.currentScrollView];
+        self.currentScrollView = (PAIActivityScrollView *)self.itemViewArray[0];
+        if ([self.delegate respondsToSelector:@selector(scrollViewDidChangedFrontItem:)]) {
+            [self.delegate scrollViewDidChangedFrontItem:self.sourceArray[self.currentScrollView.tag]];
+        }
+        [self reChangeItemListViewsFrame];
+    }];
 }
 
 

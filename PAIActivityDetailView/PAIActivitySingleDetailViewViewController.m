@@ -13,7 +13,7 @@
 
 @property (nonatomic,strong)UIImageView *snapShotBackView;
 @property (nonatomic,strong)PAIActiviryItemView *itemView;
-
+@property (nonatomic,strong)NSMutableArray *sourceArray;
 
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_8_0
 @property (nonatomic,strong)UIVisualEffectView *blutView;
@@ -43,17 +43,31 @@
     return _itemView;
 }
 
+- (NSMutableArray *)sourceArray {
+    if (!_sourceArray) {
+        _sourceArray = [NSMutableArray array];
+    }
+    return _sourceArray;
+}
+
 - (void)setSourceSnapShotImage:(UIImage *)snapImage {
     if (snapImage) {
         [self.snapShotBackView setImage:snapImage];
     }
 }
 
+- (void)setItemIds:(NSArray *)itemIdArray {
+    if (itemIdArray && itemIdArray.count > 0) {
+        
+        // itemIds
+        [self.sourceArray addObjectsFromArray:itemIdArray];
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [self.snapShotBackView setImage:[UIImage imageNamed:@"markMan"]];
-    
+        
     [self.view addSubview:self.snapShotBackView];
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_8_0
     self.blutView = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleLight]];
@@ -64,10 +78,12 @@
     [self.view sendSubviewToBack:self.snapShotBackView];
     
     [self.view addSubview:self.itemView];
-    
-     
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self.itemView setNeedsDisplayItems:self.sourceArray];
+}
 
 #pragma mark - itemView delegate
 
@@ -78,10 +94,19 @@
         [self dismissViewControllerAnimated:YES completion:nil];
     }];
 }
+
+- (void)clickToBuyWithItem:(id)item {
+    // link to buy
+}
+
+- (void)linkToOfficialWithItem:(id)item {
+    // link to official
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 /*
 #pragma mark - Navigation

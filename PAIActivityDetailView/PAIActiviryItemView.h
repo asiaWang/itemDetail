@@ -12,7 +12,7 @@
 @optional
 - (void)dissMiss;
 - (void)clickToBuyWithItem:(id)item;
-
+- (void)linkToOfficialWithItem:(id)item;
 @end
 
 @interface PAIActiviryItemView : UIView

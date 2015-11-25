@@ -12,5 +12,5 @@
 
 // 当前屏幕的截图
 - (void)setSourceSnapShotImage:(UIImage *)snapImage;
-
+- (void)setItemIds:(NSArray *)itemIdArray;
 @end

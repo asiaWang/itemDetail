@@ -9,6 +9,7 @@
 #import "PAIActivityItemDetailView.h"
 #import "PAIActivityItemScrollView.h"
 
+
 @interface PAIActivityItemDetailView()<PAIActivityItemScrollViewDelegate>
 
 @property (nonatomic,strong,readwrite)id frontShowItem;
@@ -29,14 +30,22 @@
     
     self.itemBuyButton.layer.cornerRadius = 20.f;
     [self.itemListView addSubview:self.itemScrollView];
+    
+    [self.itemLinkLabel addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(linkLabel:)]];
 }
 
 - (PAIActivityItemScrollView *)itemScrollView {
     if (!_itemScrollView) {
-        _itemScrollView = [[PAIActivityItemScrollView alloc] initWithFrame:self.frame];
+        _itemScrollView = [[PAIActivityItemScrollView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen]bounds].size.width / 2 - 12, self.itemListView.frame.size.height)];
         _itemScrollView.delegate = self;
     }
     return _itemScrollView;
+}
+
+- (void)setItemsListSource:(NSArray *)array {
+    if (array && array.count) {
+        [self.itemScrollView setSourceItems:array];
+    }
 }
 
 
@@ -45,6 +54,15 @@
 - (void)scrollViewDidChangedFrontItem:(id)item {
     if (item) {
         self.frontShowItem = item;
+        [self refeshCurrentItemDetails];
+    }
+}
+
+- (void)refeshCurrentItemDetails {
+    // 刷新当前的页面
+    
+    if ([self.delegate respondsToSelector:@selector(scrollViewDidSelectedNewItem:)]) {
+        [self.delegate scrollViewDidSelectedNewItem:self.frontShowItem];
     }
 }
 
@@ -52,6 +70,13 @@
 
 - (IBAction)clickToBuy:(id)sender {
     self.clickToBuyBlock();
+}
+
+#pragma mark - link
+- (void)linkLabel:(id)sender {
+    if (self.itemLinkLabel.text.length > 0) {
+        self.linkToOfficialBlock();
+    }
 }
 
 /*

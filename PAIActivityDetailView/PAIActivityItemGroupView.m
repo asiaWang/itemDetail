@@ -17,6 +17,13 @@
 
 @implementation PAIActivityItemGroupView
 
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    
+    self.pageControl.hidesForSinglePage = YES;
+    self.scrollView.delegate = self;
+}
+
 - (NSMutableArray *)sourceArray {
     if (!_sourceArray) {
         _sourceArray = [NSMutableArray array];
@@ -52,6 +59,7 @@
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(self.frame.size.width * i, 0, self.frame.size.width, self.frame.size.width)];
         imageView.tag = i;
         imageView.userInteractionEnabled = YES;
+        [imageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@",self.sourceArray[i]]]];
         if (i == 0) {
             NSLog(@"添加下载图片");
         }
@@ -62,6 +70,7 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     NSInteger index = fabs(scrollView.contentOffset.x) / scrollView.frame.size.width;
     self.pageControl.currentPage = index;
+    [self.pageControl updateCurrentPageDisplay];
     
     for (id object in self.scrollView.subviews) {
         if ([object isKindOfClass:[UIImageView class]]) {

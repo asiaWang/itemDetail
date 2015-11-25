@@ -25,6 +25,18 @@
 		402E50151C0416870062E0B7 /* markMan.png in Resources */ = {isa = PBXBuildFile; fileRef = 402E50141C0416870062E0B7 /* markMan.png */; };
 		402E50181C043EC50062E0B7 /* PAIActivityItemScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 402E50171C043EC50062E0B7 /* PAIActivityItemScrollView.m */; };
 		402E501B1C04576D0062E0B7 /* PAIActivityScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 402E501A1C04576D0062E0B7 /* PAIActivityScrollView.m */; };
+		402E50281C058FE60062E0B7 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 402E501C1C058FE60062E0B7 /* 1.jpg */; };
+		402E502A1C058FE60062E0B7 /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 402E501E1C058FE60062E0B7 /* 3.jpg */; };
+		402E502B1C058FE60062E0B7 /* 4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 402E501F1C058FE60062E0B7 /* 4.jpg */; };
+		402E502C1C058FE60062E0B7 /* 5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 402E50201C058FE60062E0B7 /* 5.jpg */; };
+		402E502D1C058FE60062E0B7 /* 6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 402E50211C058FE60062E0B7 /* 6.jpg */; };
+		402E502E1C058FE60062E0B7 /* 7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 402E50221C058FE60062E0B7 /* 7.jpg */; };
+		402E502F1C058FE60062E0B7 /* 8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 402E50231C058FE60062E0B7 /* 8.jpg */; };
+		402E50301C058FE60062E0B7 /* 9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 402E50241C058FE60062E0B7 /* 9.jpg */; };
+		402E50311C058FE60062E0B7 /* 10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 402E50251C058FE60062E0B7 /* 10.jpg */; };
+		402E50321C058FE60062E0B7 /* 11.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 402E50261C058FE60062E0B7 /* 11.jpg */; };
+		402E50331C058FE60062E0B7 /* 12.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 402E50271C058FE60062E0B7 /* 12.jpg */; };
+		402E50351C05B3520062E0B7 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 402E50341C05B3520062E0B7 /* 2.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +89,18 @@
 		402E50171C043EC50062E0B7 /* PAIActivityItemScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PAIActivityItemScrollView.m; sourceTree = "<group>"; };
 		402E50191C04576D0062E0B7 /* PAIActivityScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAIActivityScrollView.h; sourceTree = "<group>"; };
 		402E501A1C04576D0062E0B7 /* PAIActivityScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PAIActivityScrollView.m; sourceTree = "<group>"; };
+		402E501C1C058FE60062E0B7 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
+		402E501E1C058FE60062E0B7 /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
+		402E501F1C058FE60062E0B7 /* 4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4.jpg; sourceTree = "<group>"; };
+		402E50201C058FE60062E0B7 /* 5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 5.jpg; sourceTree = "<group>"; };
+		402E50211C058FE60062E0B7 /* 6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 6.jpg; sourceTree = "<group>"; };
+		402E50221C058FE60062E0B7 /* 7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 7.jpg; sourceTree = "<group>"; };
+		402E50231C058FE60062E0B7 /* 8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 8.jpg; sourceTree = "<group>"; };
+		402E50241C058FE60062E0B7 /* 9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 9.jpg; sourceTree = "<group>"; };
+		402E50251C058FE60062E0B7 /* 10.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 10.jpg; sourceTree = "<group>"; };
+		402E50261C058FE60062E0B7 /* 11.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 11.jpg; sourceTree = "<group>"; };
+		402E50271C058FE60062E0B7 /* 12.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 12.jpg; sourceTree = "<group>"; };
+		402E50341C05B3520062E0B7 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +152,18 @@
 			isa = PBXGroup;
 			children = (
 				402E50141C0416870062E0B7 /* markMan.png */,
+				402E501C1C058FE60062E0B7 /* 1.jpg */,
+				402E50341C05B3520062E0B7 /* 2.jpg */,
+				402E501E1C058FE60062E0B7 /* 3.jpg */,
+				402E501F1C058FE60062E0B7 /* 4.jpg */,
+				402E50201C058FE60062E0B7 /* 5.jpg */,
+				402E50211C058FE60062E0B7 /* 6.jpg */,
+				402E50221C058FE60062E0B7 /* 7.jpg */,
+				402E50231C058FE60062E0B7 /* 8.jpg */,
+				402E50241C058FE60062E0B7 /* 9.jpg */,
+				402E50251C058FE60062E0B7 /* 10.jpg */,
+				402E50261C058FE60062E0B7 /* 11.jpg */,
+				402E50271C058FE60062E0B7 /* 12.jpg */,
 				402E4FD01C02E6640062E0B7 /* AppDelegate.h */,
 				402E4FD11C02E6640062E0B7 /* AppDelegate.m */,
 				402E4FD31C02E6640062E0B7 /* ViewController.h */,
@@ -285,11 +321,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				402E502F1C058FE60062E0B7 /* 8.jpg in Resources */,
+				402E502B1C058FE60062E0B7 /* 4.jpg in Resources */,
 				402E50101C02F7DE0062E0B7 /* PAIActivityItemDetailView.xib in Resources */,
+				402E50321C058FE60062E0B7 /* 11.jpg in Resources */,
+				402E502D1C058FE60062E0B7 /* 6.jpg in Resources */,
+				402E502E1C058FE60062E0B7 /* 7.jpg in Resources */,
 				402E50041C02E8750062E0B7 /* PAIActivitySingleDetailViewViewController.xib in Resources */,
 				402E4FDD1C02E6640062E0B7 /* LaunchScreen.storyboard in Resources */,
 				402E4FDA1C02E6640062E0B7 /* Assets.xcassets in Resources */,
+				402E50351C05B3520062E0B7 /* 2.jpg in Resources */,
+				402E502A1C058FE60062E0B7 /* 3.jpg in Resources */,
 				402E50151C0416870062E0B7 /* markMan.png in Resources */,
+				402E50281C058FE60062E0B7 /* 1.jpg in Resources */,
+				402E502C1C058FE60062E0B7 /* 5.jpg in Resources */,
+				402E50331C058FE60062E0B7 /* 12.jpg in Resources */,
+				402E50311C058FE60062E0B7 /* 10.jpg in Resources */,
+				402E50301C058FE60062E0B7 /* 9.jpg in Resources */,
 				402E50091C02F1AC0062E0B7 /* PAIActivityItemGroupView.xib in Resources */,
 				402E4FD81C02E6640062E0B7 /* Main.storyboard in Resources */,
 			);
