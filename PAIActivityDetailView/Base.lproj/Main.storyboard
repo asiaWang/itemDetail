@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="markMan.png" translatesAutoresizingMaskIntoConstraints="NO" id="KVC-vE-aDb">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="markMan.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="KVC-vE-aDb">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                             </imageView>
@@ -52,6 +52,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="markMan.png" width="750" height="1334"/>
+        <image name="markMan.jpg" width="724" height="1024"/>
     </resources>
 </document>

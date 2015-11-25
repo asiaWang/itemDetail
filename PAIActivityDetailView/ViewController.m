@@ -24,7 +24,7 @@
     
     
     PAIActivitySingleDetailViewViewController *activityDetailViewController = [[PAIActivitySingleDetailViewViewController alloc] init];
-    [activityDetailViewController setSourceSnapShotImage:[UIImage imageNamed:@"markMan"]];
+    [activityDetailViewController setSourceSnapShotImage:[UIImage imageNamed:@"markMan.jpg"]];
     [activityDetailViewController setItemIds:@[@"1.jpg",@"2.jpg",@"3.jpg",@"4.jpg",@"5.jpg"]];
     [self presentViewController:activityDetailViewController animated:YES completion:nil];
     
