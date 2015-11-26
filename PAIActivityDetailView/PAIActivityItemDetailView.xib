@@ -8,7 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="PAIActivityItemDetailView">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="240"/>
+            <rect key="frame" x="0.0" y="0.0" width="600" height="250"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="zara.cn" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AVm-M8-HoV">
@@ -41,7 +41,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="miJ-3C-Qrm">
-                    <rect key="frame" x="0.0" y="70" width="600" height="170"/>
+                    <rect key="frame" x="0.0" y="65" width="600" height="185"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HED-Z0-WJG">
                             <rect key="frame" x="326" y="48" width="249" height="40"/>
@@ -68,11 +68,9 @@
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pyf-HN-n95">
-                            <rect key="frame" x="12" y="115" width="576" height="45"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pyf-HN-n95" customClass="PAICustomLabel">
+                            <rect key="frame" x="12" y="120" width="576" height="55"/>
                             <animations/>
-                            <string key="text">Label
-label</string>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -108,7 +106,7 @@ label</string>
                         <constraint firstItem="z3k-yt-NIX" firstAttribute="leading" secondItem="HRS-HJ-6qz" secondAttribute="trailing" constant="25" id="Vp8-fB-jjM"/>
                         <constraint firstItem="z3k-yt-NIX" firstAttribute="top" secondItem="miJ-3C-Qrm" secondAttribute="top" id="Vsp-RK-SvC"/>
                         <constraint firstItem="I59-Wm-xMG" firstAttribute="top" secondItem="miJ-3C-Qrm" secondAttribute="top" constant="10" id="WqW-wC-Me8"/>
-                        <constraint firstAttribute="height" constant="170" id="Y0I-u2-u1H"/>
+                        <constraint firstAttribute="height" constant="185" id="Y0I-u2-u1H"/>
                         <constraint firstItem="I59-Wm-xMG" firstAttribute="leading" secondItem="z3k-yt-NIX" secondAttribute="trailing" constant="10" id="YdQ-9h-dqo"/>
                         <constraint firstItem="HRS-HJ-6qz" firstAttribute="top" secondItem="miJ-3C-Qrm" secondAttribute="top" constant="3" id="ayF-zu-cOq"/>
                         <constraint firstItem="pyf-HN-n95" firstAttribute="leading" secondItem="miJ-3C-Qrm" secondAttribute="leading" constant="12" id="jnH-nZ-Ke1"/>
@@ -150,6 +148,7 @@ label</string>
                 <outlet property="itemBuyButton" destination="HED-Z0-WJG" id="OtO-XO-b38"/>
                 <outlet property="itemCategoryLabel" destination="t25-78-olI" id="b9t-wu-izX"/>
                 <outlet property="itemCurrentPriceLabel" destination="z3k-yt-NIX" id="OWn-vl-P47"/>
+                <outlet property="itemDetailDescriptionLabel" destination="pyf-HN-n95" id="Pff-6d-dRG"/>
                 <outlet property="itemLinkLabel" destination="AVm-M8-HoV" id="rXU-EA-oGQ"/>
                 <outlet property="itemListView" destination="PdZ-PX-Kha" id="SAD-Ig-eow"/>
                 <outlet property="itemOriginPriceLabel" destination="I59-Wm-xMG" id="Vd0-6N-1qO"/>

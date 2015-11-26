@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *itemOriginPriceLabel;
 @property (weak, nonatomic) IBOutlet UIButton *itemBuyButton;
 @property (weak, nonatomic) IBOutlet UIView *itemListView;
+@property (weak, nonatomic) IBOutlet UILabel *itemDetailDescriptionLabel;
 
 @property (nonatomic,strong)PAIActivityItemScrollView *itemScrollView;
 @end
@@ -60,6 +61,8 @@
 
 - (void)refeshCurrentItemDetails {
     // 刷新当前的页面
+    
+    self.itemDetailDescriptionLabel.text = [NSString stringWithFormat:@"印像中，Swing 的许多组件都可设置 Insets 属性，可对于 iOS 的控件就没那么幸运了，比如我想设置 UILable 或 UITextField 中的文本离边界的间隙，无伦是在 xib 里还是直"];
     
     if ([self.delegate respondsToSelector:@selector(scrollViewDidSelectedNewItem:)]) {
         [self.delegate scrollViewDidSelectedNewItem:self.frontShowItem];

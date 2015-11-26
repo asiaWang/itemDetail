@@ -11,7 +11,7 @@
 #import "PAIActivityItemGroupView.h"
 
 
-static CGFloat ItmeDetailHeight = 236.f;
+static CGFloat ItmeDetailHeight = 250.f;
 
 @interface PAIActiviryItemView()<PAIActivityItemDetailViewDelegate>
 @property (nonatomic,strong)PAIActivityItemDetailView *itemDetailView;
@@ -40,7 +40,7 @@ static CGFloat ItmeDetailHeight = 236.f;
         if (itemGroupCurrentHeight > itemGroupHeight) {
             _itemGroupView.frame = CGRectMake(self.frame.size.width / 2 - itemGroupSize / 2, 64 + (itemGroupCurrentHeight - itemGroupHeight) / 2, itemGroupSize, itemGroupHeight);
         }else {
-            _itemGroupView.frame = CGRectMake(self.frame.size.width / 2 - 160, 64, 320, 320 + 37);
+            _itemGroupView.frame = CGRectMake(self.frame.size.width / 2 - 160, 64, itemGroupSize, itemGroupHeight);
         }
         
         [self addSubview:_itemGroupView];

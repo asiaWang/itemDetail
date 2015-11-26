@@ -85,6 +85,8 @@ typedef NS_ENUM(NSInteger,ScrollDirectionType) {
         PAIActivityScrollView *scrollView = [[PAIActivityScrollView alloc] init];
         scrollView.tag = i;
         scrollView.index = i;
+        scrollView.layer.borderWidth = .5f;
+        scrollView.layer.borderColor = [UIColor grayColor].CGColor;
         if (self.sourceArray.count > 1) {
             scrollView.frame = CGRectMake(self.indexWidth * i, 0, constSize, constSize);
         }else {
@@ -92,10 +94,10 @@ typedef NS_ENUM(NSInteger,ScrollDirectionType) {
         }
         if (i == 0) {
             self.currentScrollView = scrollView;
+        }else {
+//            scrollView.layer.
         }
         [scrollView setImage:[UIImage imageNamed:self.sourceArray[i]]];
-        scrollView.layer.borderWidth = 1.f;
-        scrollView.layer.borderColor = [UIColor grayColor].CGColor;
         [self.itemViewArray addObject:scrollView];
         [self addSubview:scrollView];
         [self sendSubviewToBack:scrollView];
@@ -114,6 +116,7 @@ typedef NS_ENUM(NSInteger,ScrollDirectionType) {
         self.startPoint = touchPoint;
         self.startCenter = self.currentScrollView.center;
     }
+    
 }
 
 - (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
